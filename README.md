@@ -1,14 +1,56 @@
-## Portfolio
-A programmer portfolio is more than a simple resume. In essence, it is a showcase that proves that you can do what you talk about in your resume. Rather than telling prospective employers about your skills, you can create a software developer portfolio to show them.
+# Portfolio Website
 
-Portfolio made of css, html and vanilla js has been deployed by Heroku App.
+A modern, responsive personal portfolio website showcasing professional experience, education, projects, and technical expertise.
 
-Click here to visit my Portfolio: https://findhemanath.herokuapp.com/
+## Overview
 
-## Screenshot
+This portfolio website is built using HTML, CSS, and vanilla JavaScript, featuring a clean and professional design. It includes sections for:
 
-![](screenshot1.png)
+- **About**: Personal introduction and background
+- **Education**: Academic qualifications with timeline visualization
+- **Experience**: Professional work history with company logos and links
+- **Projects**: Portfolio of completed projects
+- **Expertise**: Technical skills organized by categories
+- **Contact**: Contact information and form
 
-![](screenshot2.png)
+## Features
 
-![](screenshot3.png)
+- Responsive design that works on all devices
+- Timeline-based layout for education and experience sections
+- Interactive project gallery
+- Smooth scrolling navigation
+- Animated typing effect in hero section
+- Modern card-based design for expertise section
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Bootstrap (Grid system)
+- AOS (Animate On Scroll)
+- Typed.js (Typing animation)
+- Various icon libraries (Boxicons, Icofont)
+
+## Getting Started
+
+1. Clone the repository
+2. Open `index.html` in a web browser
+3. For production deployment, upload all files to a web server
+
+## Structure
+
+```
+Portfolio/
+├── index.html          # Main HTML file
+├── assets/
+│   ├── css/           # Stylesheets
+│   ├── js/            # JavaScript files
+│   ├── img/           # Images and logos
+│   └── vendor/        # Third-party libraries
+└── forms/             # Contact form handler
+```
+
+## License
+
+This project is open source and available for personal use.
