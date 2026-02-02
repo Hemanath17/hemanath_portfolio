@@ -140,10 +140,13 @@
       });
       aos_init();
     });
+  });
 
-    // Initiate venobox (lightbox feature used in portofilo)
-    $(document).ready(function() {
-      $('.venobox').venobox();
+  // Initiate venobox (lightbox feature used in portfolio)
+  $(document).ready(function() {
+    $('.venobox').venobox({
+      numeratio: true,
+      infinigall: true
     });
   });
 
