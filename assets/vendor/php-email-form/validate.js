@@ -99,6 +99,12 @@
     var this_form = $(this);
     var action = $(this).attr('action');
 
+    /* Web3Forms (static/GitHub Pages): always POST to their API. If action still pointed at
+       forms/contact.php or a same-origin URL, the host returns 405 Method Not Allowed. */
+    if (this_form.find('input[name="access_key"]').length) {
+      action = 'https://api.web3forms.com/submit';
+    }
+
     if( ! action ) {
       this_form.find('.loading').slideUp();
       this_form.find('.error-message').slideDown().html('The form action property is not set!');
@@ -129,7 +135,8 @@
       url: action,
       data: data,
       timeout: 40000,
-      dataType: 'text'
+      dataType: 'text',
+      crossDomain: true
     }).done( function(msg){
       var success = false;
       var displayMsg = msg;
@@ -172,6 +179,9 @@
           error_msg += ' ' + data.status;
         }
         error_msg += '<br>';
+      }
+      if (data.status === 405) {
+        error_msg += '<small>If you see 405, the request likely hit your static host instead of Web3Forms. Hard-refresh the page (Ctrl+Shift+R) or redeploy, then try again.</small><br>';
       }
       if(data.responseText) {
         error_msg += data.responseText;
