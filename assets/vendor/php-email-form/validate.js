@@ -129,43 +129,66 @@
     return true;
   });
 
+  function isSuccessfulFormResponse(msg) {
+    if (typeof msg === 'string' && msg.trim() === 'OK') {
+      return true;
+    }
+    var parsed = null;
+    if (typeof msg === 'object' && msg !== null) {
+      parsed = msg;
+    } else if (typeof msg === 'string') {
+      try {
+        parsed = JSON.parse(msg.replace(/^\uFEFF/, '').trim());
+      } catch (e) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+    if (parsed.success === true || parsed.success === 'true' || parsed.success === 1) {
+      return true;
+    }
+    if (parsed.status === 'success' || parsed.status === true) {
+      return true;
+    }
+    return false;
+  }
+
   function php_email_form_submit(this_form, action, data) {
     $.ajax({
       type: "POST",
       url: action,
       data: data,
       timeout: 40000,
+      /* Raw text avoids jQuery JSON parser errors; we parse Web3Forms JSON manually */
       dataType: 'text',
       crossDomain: true
-    }).done( function(msg){
-      var success = false;
-      var displayMsg = msg;
+    }).done( function(msg, textStatus, jqXHR){
+      try {
+        var success = isSuccessfulFormResponse(msg);
+        var displayMsg = msg;
 
-      if (typeof msg === 'string' && msg.trim() === 'OK') {
-        success = true;
-      } else if (typeof msg === 'string') {
-        try {
-          var parsed = JSON.parse(msg);
-          if (parsed && parsed.success === true) {
-            success = true;
-          } else if (parsed && parsed.message) {
-            displayMsg = parsed.message;
+        if (typeof msg === 'string') {
+          displayMsg = msg;
+        } else if (msg && typeof msg === 'object' && msg.message) {
+          displayMsg = msg.message;
+        }
+
+        if (success) {
+          this_form.find('.error-message').hide().empty();
+          this_form.find('.sent-message').slideDown();
+          this_form.find("input:not(input[type=submit]):not([name=access_key]):not([name=botcheck]), textarea").val('');
+        } else {
+          if (!displayMsg || (typeof displayMsg === 'object')) {
+            displayMsg = 'Form submission did not return success. If you received the email, you can ignore this message.';
           }
-        } catch (e) {
-          /* not JSON — keep legacy string handling */
+          this_form.find('.error-message').slideDown().html(typeof displayMsg === 'string' ? displayMsg : 'Something went wrong. Please try again.');
         }
-      }
-
-      if (success) {
-        this_form.find('.loading').slideUp();
-        this_form.find('.sent-message').slideDown();
-        this_form.find("input:not(input[type=submit]):not([name=access_key]):not([name=botcheck]), textarea").val('');
-      } else {
-        this_form.find('.loading').slideUp();
-        if (!displayMsg) {
-          displayMsg = 'Form submission failed and no error message returned from: ' + action + '<br>';
-        }
-        this_form.find('.error-message').slideDown().html(typeof displayMsg === 'string' ? displayMsg : 'Something went wrong. Please try again.');
+      } catch (err) {
+        console.error(err);
+        this_form.find('.error-message').slideDown().html('Could not read the server response. If you received the confirmation email, your message was delivered.');
+      } finally {
+        this_form.find('.loading').stop(true, true).hide();
       }
     }).fail( function(data){
       console.log(data);
@@ -186,8 +209,9 @@
       if(data.responseText) {
         error_msg += data.responseText;
       }
-      this_form.find('.loading').slideUp();
       this_form.find('.error-message').slideDown().html(error_msg);
+    }).always(function () {
+      this_form.find('.loading').stop(true, true).hide();
     });
   }
 
