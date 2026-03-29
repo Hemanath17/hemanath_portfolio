@@ -128,18 +128,37 @@
       type: "POST",
       url: action,
       data: data,
-      timeout: 40000
+      timeout: 40000,
+      dataType: 'text'
     }).done( function(msg){
-      if (msg.trim() == 'OK') {
+      var success = false;
+      var displayMsg = msg;
+
+      if (typeof msg === 'string' && msg.trim() === 'OK') {
+        success = true;
+      } else if (typeof msg === 'string') {
+        try {
+          var parsed = JSON.parse(msg);
+          if (parsed && parsed.success === true) {
+            success = true;
+          } else if (parsed && parsed.message) {
+            displayMsg = parsed.message;
+          }
+        } catch (e) {
+          /* not JSON — keep legacy string handling */
+        }
+      }
+
+      if (success) {
         this_form.find('.loading').slideUp();
         this_form.find('.sent-message').slideDown();
-        this_form.find("input:not(input[type=submit]), textarea").val('');
+        this_form.find("input:not(input[type=submit]):not([name=access_key]):not([name=botcheck]), textarea").val('');
       } else {
         this_form.find('.loading').slideUp();
-        if(!msg) {
-          msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
+        if (!displayMsg) {
+          displayMsg = 'Form submission failed and no error message returned from: ' + action + '<br>';
         }
-        this_form.find('.error-message').slideDown().html(msg);
+        this_form.find('.error-message').slideDown().html(typeof displayMsg === 'string' ? displayMsg : 'Something went wrong. Please try again.');
       }
     }).fail( function(data){
       console.log(data);

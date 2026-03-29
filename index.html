@@ -557,7 +557,10 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <!-- Contact form: Web3Forms (GitHub Pages). Receiving address for this key: findhemanath@gmail.com (manage at https://web3forms.com) -->
+            <form action="https://api.web3forms.com/submit" method="POST" role="form" class="php-email-form">
+              <input type="hidden" name="access_key" value="f2a75bc3-c7b2-492a-9e72-9bbec3e6c427">
+              <input type="checkbox" name="botcheck" class="d-none" style="display:none" tabindex="-1" autocomplete="off">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -565,19 +568,19 @@
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
+                  <label for="email">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="name">Subject</label>
+                <label for="subject">Subject</label>
                 <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <label for="message">Message</label>
+                <textarea class="form-control" name="message" id="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
