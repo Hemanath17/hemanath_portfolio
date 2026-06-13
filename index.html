@@ -67,7 +67,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Hemanath</h1>
-      <p>I'm <span class="typed" data-typed-items="a Data Scientist, a Data Analyst, a Data Engineer, an AI Engineer, an NLP Engineer, an ML Engineer, an Applied AI Researcher"></span></p>
+      <p>I'm <span class="typed" data-typed-items="a Data Scientist, a Data Engineer, an AI Engineer, a Forward Deployed Engineer, an NLP Engineer, an ML Engineer, an Applied AI Researcher"></span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -83,15 +83,17 @@
 
         <div class="row">
           <div class="col-lg-8 content" data-aos="fade-right">
-            <p>I am a data-driven problem solver with a strong passion for transforming complex data into impactful, real-world solutions. With over two years of professional experience as a Data Engineer, I have built and optimized scalable data pipelines, worked extensively with structured and unstructured data, and collaborated across teams to deliver reliable, production-ready data systems. This industry experience has given me a solid foundation in data engineering, analytics, and machine learning workflows.</p>
-            <p>Currently, I am pursuing a Master of Science in Data Science, where I am deepening my expertise in advanced analytics, machine learning, statistical modeling, and data-driven decision-making. Alongside my academic journey, I work as a Graduate Researcher, actively contributing to applied NLP research in the healthcare domain, where I focus on extracting meaningful insights from clinical and health-related text data to support better decision-making and outcomes.</p>
-            <p>My research interests lie at the intersection of machine learning, natural language processing, and real-world impact, particularly in domains where data can directly improve human lives. I enjoy bridging the gap between theory and practice, designing end-to-end solutions that move from raw data to interpretable insights and deployable models.</p>
-            <p>Beyond technical skills, I bring a mindset rooted in continuous learning, resilience, and curiosity. I firmly believe that consistent learning and a never-giving-up attitude are what truly set individuals apart and drive them toward meaningful goals. Every challenge is an opportunity to grow, and every dataset tells a story waiting to be uncovered.</p>
-            <p>Through this portfolio, I showcase my projects, research work, and technical expertise that reflect my journey as a data professional, one who is committed to learning, innovation, and creating value through data.</p>
+
+            <p>I build AI systems that survive contact with production, not just the demo.</p>
+            <p>I learned that the hard way as a Data Engineer at LTIMindtree on the Honeywell account. I wrote a Python migration accelerator that parsed 2,400+ job flows out of Airflow and into Control-M, retired the legacy servers underneath them, and cut roughly $80,000 in annual infrastructure cost. I rebuilt brittle time-based scheduling into event-driven pipelines, and shrank a 7-hour metadata job to 2. Two years of that taught me how production data actually behaves: where it breaks, where it lies, and what it takes to make a system you can trust at scale.</p>
+            <p>Now I bring that engineering discipline to research. At the Deep Target NLP Lab at the University of Arizona, I build a 3D avatar AI therapist for children with autism, using LLMs and retrieval-augmented generation to read behavioral cues. I designed the NLP metrics behind it, Mean Length of Utterance, conversational turn-taking, cross-encoder similarity, and speech act classification, so the system can actually measure social reciprocity and emotional labeling instead of guessing at them.</p>
+            <p>That sits squarely in what drives me: the intersection of machine learning, natural language processing, and domains where better models translate into better human outcomes. I care about the full arc, from raw data to a deployable system someone relies on.</p>
+            <p>Most recently, I have been building analytics for Arizona Baseball, where I built a model to improve striking performance for batters and find hits per balls, surfacing the team's batting strategy for coaching staff. Sports data is messy, real-time, and high-stakes, which is exactly the kind of problem I like.</p>
+            <p>Explore the work below, and reach out if you are building something difficult.</p>
           </div>
           <div class="col-lg-4" data-aos="fade-left">
             <div class="about-img-wrapper">
-              <img src="assets/img/Profile.jpg" class="img-fluid" alt="Hemanath">
+              <img src="assets/img/Profile_small.jpg" class="img-fluid" alt="Hemanath">
             </div>
           </div>
         </div>
@@ -169,6 +171,23 @@
               
               <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-logo company-logo">
+                  <img src="assets/img/logo/alkhai-logo.avif" alt="Alkhai Logo">
+                </div>
+                <div class="timeline-marker"></div>
+                <div class="timeline-card">
+                  <h4>Forward Deployed Engineer</h4>
+                  <h5>June 2026 - Present</h5>
+                  <p><em><a href="https://www.alkhai.com/" target="_blank" rel="noopener noreferrer">Alkhai</a></em></p>
+                  <ul>
+                    <li>Deploy Alkhai's operational-intelligence platform directly into client environments as a forward-deployed engineer, standing up read-only connectors to client event sources (files, databases, and streams), then building the event-log structuring and ETL that reconstruct millions of raw, unstructured events into the true end-to-end process flow, including the non-standard variants that the documented workflow hides.</li>
+                    <li>Own the targeted-automation layer using Alkhai's proprietary automation tooling, translating ranked, high-impact bottlenecks into deployed execution rules that run inside the client's own tenant, so constrained steps stop waiting on manual intervention; this converts process-mining findings into live, system-enforced automation rather than a static report.</li>
+                    <li>Build the closed-loop measurement around each automation, baselining performance before deployment and tracking realized versus predicted impact afterward with continuous monitoring for drift, recurrence, and SLA breaches on every pipeline run, and partner with client teams to translate each run's findings into concrete, costed actions ahead of monthly leadership reviews.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-logo company-logo">
                   <img src="assets/img/logo/baseball.jpg" alt="Arizona Baseball Analytics Logo">
                 </div>
                 <div class="timeline-marker"></div>
@@ -177,15 +196,17 @@
                   <h5>Jan 2026 - May 2026</h5>
                   <p><em><a href="https://x.com/AZStatCats" target="_blank" rel="noopener noreferrer">Arizona Baseball Analytics</a></em></p>
                   <ul>
-                    <li>Engineered an end-to-end baseball analytics pipeline in R (tidyverse, data.table, xgboost) to transform raw Trackman/fall-season data into production-ready hitting, pitching, and defensive performance dashboards</li>
-                    <li>Built a ~3K-line automated reporting framework that computes advanced KPIs (xAVG/xOBP/xSLG, CSW%, Chase%, Whiff%, in-zone miss rate, fielding metrics) and standardizes outputs for coaches, analysts, and player-development staff</li>
-                    <li>Developed custom trajectory-calculation functions to reconstruct pitch and batted-ball flight paths from polynomial coefficients, enabling deeper movement/shape analysis beyond box-score statistics</li>
-                    <li>Delivered decision-support assets for team operations by creating player-level and team-level leaderboard tables (split by handedness/situational context), improving speed and consistency of scouting and development insights</li>
+                    <li>Engineered a dual-stage XGBoost defensive modeling pipeline in R that ingests raw TrackMan tracking data, predicts play-out probability, and computes Outs Above Average (OAA) for infield and outfield positions, translating model outputs into position-level defensive value and runs-saved estimates that inform roster construction and lineup decisions.</li>
+                    <li>Developed a pitcher "Stuff+" analytics engine in R using expected run value (xRV) modeling across pitch types, handedness splits, and full arsenal profiles, producing normalized performance indices that benchmark Arizona pitchers against Division I baselines and surface arsenal strengths for coaching staff.</li>
+                    <li>Architected and deployed a player workload monitoring dashboard in R Shiny, building automated VALD API pipelines (Dynamo and ForceDecks) with end-to-end ETL workflows and interactive trend visualizations that track strength, force production, and recovery patterns across the roster to support workload management and injury prevention.</li>
+                    <li>Built hitter performance intelligence tools in R featuring rolling-average trend modeling, spray-chart visualization, and plate-discipline segmentation, enabling coaches to monitor swing quality, batted-ball outcomes, and performance shifts by pitcher handedness over the course of a season.</li>
+                    <li>Built a ~3K-line automated reporting framework that computes advanced KPIs (xAVG/xOBP/xSLG, CSW%, Chase%, Whiff%, in-zone miss rate, fielding metrics) and standardizes outputs for coaches, analysts, and player-development staff.</li>
+                    <li>Delivered decision-support assets for team operations by creating player-level and team-level leaderboard tables (split by handedness/situational context), improving speed and consistency of scouting and development insights.</li>
                   </ul>
                 </div>
               </div>
 
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="timeline-logo company-logo">
                   <img src="assets/img/logo/biosphere.png" alt="Biosphere 3 Logo">
                 </div>
@@ -207,7 +228,7 @@
                 </div>
               </div>
 
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="timeline-logo company-logo">
                   <img src="assets/img/logo/Banner_Health_logo.svg" alt="Banner Health Logo">
                 </div>
@@ -215,15 +236,18 @@
                 <div class="timeline-card">
                   <h4>Data Science Extern</h4>
                   <h5>Aug 2025 - May 2026</h5>
-                  <p><em><a href="https://www.bannerhealth.com/" target="_blank" rel="noopener noreferrer">Client: Banner Health (ELLER PARTNERSHIPS OFFICE)</a></em></p>
+                  <p><em><a href="https://www.bannerhealth.com/" target="_blank" rel="noopener noreferrer">Banner Health</a></em></p>
                   <ul>
-                    <li>Built end-to-end ETL pipelines in PySpark and SQL (CTEs, window functions, indexing) on AWS S3/EC2 and Databricks, loading data into Snowflake to centralize CMS Medicare and ACS SDOH datasets</li>
-                    <li>Standardized 1M+ records, reduced manual processing by 40% and delivered automated county-level KPIs (discharges per 1,000)</li>
+                    <li>Built end-to-end ETL pipelines in PySpark and SQL, applying CTEs, window functions, and indexing for efficient transformation on AWS (S3, EC2) and Databricks, then loaded curated data into Snowflake to centralize CMS Medicare claims and ACS social-determinants-of-health (SDOH) datasets into a single analytics-ready source.</li>
+                    <li>Standardized and reconciled 1M+ records across heterogeneous source schemas, resolving inconsistent county and provider identifiers and harmonizing measurement units, which reduced manual data processing by 40% and established a repeatable ingestion workflow.</li>
+                    <li>Engineered a Python and SQL data-modeling framework with automated validation, anomaly detection, and schema checks, producing regression-ready tables that powered OLS models (R squared = 0.93) for county-level demand and access analysis.</li>
+                    <li>Delivered automated county-level KPIs (discharges per 1,000 population) and interactive Power BI dashboards covering patient volume, referral patterns, and surgical encounters, giving clinical and strategy stakeholders a self-serve view of utilization across geographies.</li>
+                    <li>Translated the modeling and dashboard outputs into an equity-driven service expansion analysis, identifying under-served counties and informing data-backed recommendations for where Banner Health could extend access.</li>
                   </ul>
                 </div>
               </div>
 
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
                 <div class="timeline-logo company-logo">
                   <img src="assets/img/logo/University-of-Arizona-Logo.png" alt="Deep TargetNLP Logo">
                 </div>
@@ -231,15 +255,18 @@
                 <div class="timeline-card">
                   <h4>Graduate Researcher</h4>
                   <h5>Aug 2025 - May 2026</h5>
-                  <p><em><a href="https://sites.arizona.edu/deeptarget-nlp-lab/" target="_blank" rel="noopener noreferrer">Deep TargetNLP</a></em></p>
+                  <p><em><a href="https://sites.arizona.edu/deeptarget-nlp-lab/" target="_blank" rel="noopener noreferrer">Deep TargetNLP Lab</a></em></p>
                   <ul>
-                    <li>Building an interactive 3D avatar model leveraging Natural Language Processing (NLP) and Retrieval-Augmented Generation (RAG) to classify and assess behavioral cues in children with autism enhancing therapist-led interventions</li>
-                    <li>Collaborating iteratively with clinicians to implement data-driven improvements and to translate domain-specific feedback into algorithmic improvements for the model's behavioral analysis logic, conducting research on autism behavioral patterns and optimizing the avatar's responses using multimodal feedback from real-world therapy sessions</li>
+                    <li>Designed and developed a novel 3D animated AI therapist for children with autism, architecting a real-time conversational system that pairs large language models with Retrieval-Augmented Generation (RAG) over a curated clinical knowledge base, so the avatar's responses stay grounded in evidence-based therapeutic practice rather than free-form generation; the animated avatar delivers expressive, child-facing interactions intended to support and extend therapist-led intervention sessions.</li>
+                    <li>Built the behavioral-analysis layer that lets the system read and classify behavioral cues during a session, applying NLP techniques to interpret a child's language and interaction patterns in real time and to adapt the avatar's conversational strategy, turning each exchange into structured signal that clinicians can review rather than unmeasured back-and-forth.</li>
+                    <li>Engineered a custom evaluation framework, the core research novelty of the project, to rigorously quantify the therapist's performance using purpose-built NLP metrics: Mean Length of Utterance (MLU) and conversational turn-taking to track patient progress and engagement over time, and Cross-Encoder Similarity plus Speech Act Classification to assess the AI's ability to maintain social reciprocity and the accuracy of its emotional labeling, giving the lab a reproducible, quantitative standard for measuring an inherently qualitative clinical interaction.</li>
+                    <li>Partnered iteratively with clinicians throughout development, translating domain-specific feedback on autism behavioral patterns into concrete algorithmic improvements to the avatar's behavioral-analysis logic and response generation, and incorporating multimodal feedback from real-world therapy sessions so each iteration was validated against actual clinical practice rather than synthetic benchmarks alone.</li>
+                    <li>Delivered the working system live to clinicians and program funders, demonstrating the avatar in action alongside the evaluation framework's metrics, which bridged the gap between an NLP research prototype and a credible clinical-support tool and positioned the work for continued research investment.</li>
                   </ul>
                 </div>
               </div>
 
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
                 <div class="timeline-logo company-logo">
                   <img src="assets/img/logo/University-of-Arizona-Logo.png" alt="ACT Lab Logo">
                 </div>
@@ -256,7 +283,7 @@
                 </div>
               </div>
 
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
                 <div class="timeline-logo company-logo">
                   <img src="assets/img/logo/LTIMindtree_Logo.png" alt="LTIMindtree Logo">
                 </div>
